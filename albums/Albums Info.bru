@@ -1,0 +1,21 @@
+meta {
+  name: Albums Info
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/albums
+  body: none
+  auth: none
+}
+
+tests {
+  test("should be able to get albums", function() {
+    expect(res.status).to.equal(200);
+  });
+   
+  test("should receive the token", function() {
+    expect(res.body.token).to.be.a('string');
+  });
+}
